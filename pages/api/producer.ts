@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 
 const SERVERLESSQ_QUEUE_ID = process.env.SERVERLESSQ_QUEUE_ID;
 const SERVERLESSQ_API_TOKEN = process.env.SERVERLESSQ_API_TOKEN;
+const BASE_URL = process.env.BASE_URL
 
 const VERCEL_URL = process.env.VERCEL_URL;
 
@@ -24,7 +25,7 @@ export default async function handler(
   }`;
   console.log("Target URL: ", targetUrl);
 
-  const fetchUrl = `https://api.serverlessq.com?id=${SERVERLESSQ_QUEUE_ID}&target=${targetUrl}`;
+  const fetchUrl = `https://${BASE_URL}?id=${SERVERLESSQ_QUEUE_ID}&target=${targetUrl}`;
 
   const result = await fetch(fetchUrl, {
     headers: {
