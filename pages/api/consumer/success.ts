@@ -5,5 +5,6 @@ export default function handler(
   res: NextApiResponse<void>
 ) {
   console.log("Get success request");
-  res.status(200).json({ message: "success" });
+  res.status(200).json();
+  return;
 }
